@@ -1,0 +1,28 @@
+{
+  "title": "Dashboard",
+  "welcome": "Welcome back",
+  "summary": "Here's a summary of your activity",
+  "stats": {
+    "totalUsers": "Total Users",
+    "activeUsers": "Active Users",
+    "revenue": "Revenue"
+  },
+  "button":{
+    "download": "Download"
+  },
+  "tabs": {
+    "overview": "Overview",
+    "analytics": "Analytics",
+    "reports": "Reports",
+    "notifications": "Notifications"
+  },
+  "cards": {
+    "totalrevenue": "Total Revenue",
+    "subscriptions": "Subscriptions",
+    "sales": "Sales",
+    "activenew": "Active New",
+    "overview": "Overview",
+    "recentsales": "Recent Sales"
+  }
+  
+}

@@ -1,0 +1,27 @@
+{
+  "title": "仪表盘",
+  "welcome": "欢迎回来",
+  "summary": "以下是您的活动摘要",
+  "stats": {
+    "totalUsers": "总用户数",
+    "activeUsers": "活跃用户",
+    "revenue": "收入"
+  },
+  "button":{
+    "download": "下载"
+  },
+  "tabs": {
+    "overview": "概览",
+    "analytics": "分析",
+    "reports": "报告",
+    "notifications": "通知"
+  },
+  "cards": {
+    "totalrevenue": "总收入",
+    "subscriptions": "订阅",
+    "sales": "销售额",
+    "activenew": "活跃新用户",
+    "overview": "概览",
+    "recentsales": "最近销售"
+  }
+}
