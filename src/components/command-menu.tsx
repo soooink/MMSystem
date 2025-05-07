@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { useNavigate } from '@tanstack/react-router'
 import {
   IconArrowRightDashed,
@@ -23,8 +24,8 @@ import { ScrollArea } from './ui/scroll-area'
 export function CommandMenu() {
   const navigate = useNavigate()
   const { setTheme } = useTheme()
+  const { t } = useTranslation('Theme')
   const { open, setOpen } = useSearch()
-
   const runCommand = React.useCallback(
     (command: () => unknown) => {
       setOpen(false)
@@ -76,17 +77,17 @@ export function CommandMenu() {
             </CommandGroup>
           ))}
           <CommandSeparator />
-          <CommandGroup heading='Theme'>
+          <CommandGroup heading={t("theme")}>
             <CommandItem onSelect={() => runCommand(() => setTheme('light'))}>
-              <IconSun /> <span>Light</span>
+              <IconSun /> <span>{t("light")}</span>
             </CommandItem>
             <CommandItem onSelect={() => runCommand(() => setTheme('dark'))}>
               <IconMoon className='scale-90' />
-              <span>Dark</span>
+              <span>{t("dark")}</span>
             </CommandItem>
             <CommandItem onSelect={() => runCommand(() => setTheme('system'))}>
               <IconDeviceLaptop />
-              <span>System</span>
+              <span>{t("system")}</span>
             </CommandItem>
           </CommandGroup>
         </ScrollArea>

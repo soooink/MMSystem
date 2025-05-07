@@ -23,6 +23,10 @@
     "activenew": "Active New",
     "overview": "Overview",
     "recentsales": "Recent Sales"
+  },
+  "nav": {
+    "teams": "Teams",
+    "addTeam": "Add Team"
   }
   
 }

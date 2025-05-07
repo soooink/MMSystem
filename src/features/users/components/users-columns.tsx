@@ -7,8 +7,10 @@ import { callTypes, userTypes } from '../data/data'
 import { User } from '../data/schema'
 import { DataTableColumnHeader } from './data-table-column-header'
 import { DataTableRowActions } from './data-table-row-actions'
+import { useTranslation } from 'react-i18next'
 
 export const columns: ColumnDef<User>[] = [
+  
   {
     id: 'select',
     header: ({ table }) => (
@@ -40,10 +42,13 @@ export const columns: ColumnDef<User>[] = [
     enableHiding: false,
   },
   {
+    
     accessorKey: 'username',
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='Username' />
-    ),
+    
+    header: ({ column }) => {
+      const { t } = useTranslation('User')
+      return <DataTableColumnHeader column={column} title={t('field.userList')} />;
+    },
     cell: ({ row }) => (
       <LongText className='max-w-36'>{row.getValue('username')}</LongText>
     ),
@@ -58,9 +63,10 @@ export const columns: ColumnDef<User>[] = [
   },
   {
     id: 'fullName',
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='Name' />
-    ),
+    header: ({ column }) => {
+      const { t } = useTranslation('User')
+      return <DataTableColumnHeader column={column} title={t('table.Name')} />;
+    },
     cell: ({ row }) => {
       const { firstName, lastName } = row.original
       const fullName = `${firstName} ${lastName}`
@@ -70,26 +76,29 @@ export const columns: ColumnDef<User>[] = [
   },
   {
     accessorKey: 'email',
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='Email' />
-    ),
+    header: ({ column }) => {
+      const { t } = useTranslation('User')
+      return <DataTableColumnHeader column={column} title={t('table.Email')} />
+    },
     cell: ({ row }) => (
       <div className='w-fit text-nowrap'>{row.getValue('email')}</div>
     ),
   },
   {
     accessorKey: 'phoneNumber',
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='Phone Number' />
-    ),
+    header: ({ column }) => {
+      const { t } = useTranslation('User')
+      return <DataTableColumnHeader column={column} title={t('table.Phone')} />
+    },
     cell: ({ row }) => <div>{row.getValue('phoneNumber')}</div>,
     enableSorting: false,
   },
   {
     accessorKey: 'status',
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='Status' />
-    ),
+    header: ({ column }) => {
+      const { t } = useTranslation('User')
+      return <DataTableColumnHeader column={column} title={t('table.Status')} />
+    },
     cell: ({ row }) => {
       const { status } = row.original
       const badgeColor = callTypes.get(status)
@@ -109,9 +118,10 @@ export const columns: ColumnDef<User>[] = [
   },
   {
     accessorKey: 'role',
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='Role' />
-    ),
+    header: ({ column }) => {
+      const { t } = useTranslation('User')
+      return <DataTableColumnHeader column={column} title={t('table.Role')} />
+    },
     cell: ({ row }) => {
       const { role } = row.original
       const userType = userTypes.find(({ value }) => value === role)

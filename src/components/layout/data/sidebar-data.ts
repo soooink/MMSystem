@@ -60,8 +60,8 @@ export const sidebarData: SidebarData = {
           icon: IconChecklist,
         },
         {
-          title: 'Apps',
-          url: '/apps',
+          title: 'Plugin Market',
+          url: '/plugin-market',
           icon: IconPackages,
         },
         {

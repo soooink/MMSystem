@@ -27,7 +27,7 @@ export function TeamSwitcher({
   }[]
 }) {
   const { isMobile } = useSidebar()
-  const { t } = useTranslation()
+  const { t } = useTranslation('Dashboard')
   const [activeTeam, setActiveTeam] = React.useState(teams[0])
 
   return (

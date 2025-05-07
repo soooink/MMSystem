@@ -16,16 +16,10 @@ import { ThemeSwitch } from '@/components/theme-switch'
 import { Overview } from './components/overview'
 import { RecentSales } from './components/recent-sales'
 import { LanguageSwitch } from '@/components/language-switch'
-import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { loadPageNamespace } from '@/i18n'
 
 export default function Dashboard() {
-  const { t } = useTranslation('dashboard')
-
-  useEffect(() => {
-    loadPageNamespace('dashboard')
-  }, [])
+  const { t } = useTranslation('Dashboard'); // 指定命名空间
 
   return (
     <>

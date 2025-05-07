@@ -26,6 +26,7 @@ import { PasswordInput } from '@/components/password-input'
 import { SelectDropdown } from '@/components/select-dropdown'
 import { userTypes } from '../data/data'
 import { User } from '../data/schema'
+import { useTranslation } from 'react-i18next'
 
 const formSchema = z
   .object({

@@ -1,0 +1,26 @@
+{
+  "field": {
+      "userList": "User List",
+      "userName": "User Name",
+      "email": "Email",
+      "role": "Role",
+      "status": "Status",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "actions": "Actions"
+  },
+  "button": {
+      "inviteUser": "Invite User",
+      "addUser": "Add User",
+      "deleteUser": "Delete User"
+  },
+  "tabs": {
+      "userList": "User List",
+      "inviteUser": "Invite User"
+  },
+  "message": {
+      "describe": "Manage your users and their roles here.",
+      "email_is_required": "Email is required."
+  }
+  
+}

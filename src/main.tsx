@@ -14,7 +14,7 @@ import { FontProvider } from './context/font-context';
 import { ThemeProvider } from './context/theme-context';
 import { LanguageProvider } from './context/language-context';
 import './index.css';
-import i18n from './i18n';
+import i18n from './locales';
 import { routeTree } from './routeTree.gen';
 
 const queryClient = new QueryClient({

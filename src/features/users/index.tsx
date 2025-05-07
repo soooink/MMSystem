@@ -11,17 +11,11 @@ import UsersProvider from './context/users-context'
 import { userListSchema } from './data/schema'
 import { users } from './data/users'
 import { LanguageSwitch } from '@/components/language-switch'
-import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { loadPageNamespace } from '@/i18n'
 
   
 export default function Users() {
-  const { t } = useTranslation('users')
-
-  useEffect(() => {
-    loadPageNamespace('users')
-  }, [])
+  const { t } = useTranslation('User')
   // Parse user list
   const userList = userListSchema.parse(users)
 
@@ -39,9 +33,9 @@ export default function Users() {
       <Main>
         <div className='mb-2 flex flex-wrap items-center justify-between space-y-2'>
           <div>
-            <h2 className='text-2xl font-bold tracking-tight'>{t('userList')}</h2>
+            <h2 className='text-2xl font-bold tracking-tight'>{t('field.userList')}</h2>
             <p className='text-muted-foreground'>
-              Manage your users and their roles here.
+              {t('message.describe')}
             </p>
           </div>
           <UsersPrimaryButtons />

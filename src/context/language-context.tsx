@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 type Language = 'en' | 'zh';
 
@@ -9,39 +10,32 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-import { useTranslation } from 'react-i18next';
-
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const { i18n } = useTranslation();
-  const storageKey = 'selectedLanguage';
-  
-  // 从localStorage加载初始语言
-  const [language, setLanguage] = useState<Language>(() => {
-    const storedLanguage = localStorage.getItem(storageKey);
-    return (storedLanguage as Language) || 'en';
-  });
+  const [language, setLanguage] = useState<Language>(
+    i18n.language && (i18n.language === 'en' || i18n.language === 'zh')
+      ? (i18n.language as Language)
+      : 'en'
+  );
 
   const handleSetLanguage = (newLanguage: Language) => {
     try {
       i18n.changeLanguage(newLanguage);
       setLanguage(newLanguage);
-      // 保存到localStorage
-      localStorage.setItem(storageKey, newLanguage); i18n.reloadResources();
     } catch (error) {
-      console.error('语言切换失败:', error); window.location.reload(); // 修正变量名
+      console.error('语言切换失败:', error);
     }
   };
 
-  // 同步 i18next 语言变化
   useEffect(() => {
     const handleLanguageChange = (lng: string) => {
       console.log('i18next 语言变化:', lng);
       if (lng === 'en' || lng === 'zh') {
         setLanguage(lng as Language);
       } else {
-        setLanguage('zh');
+        setLanguage('en');
       }
     };
     i18n.on('languageChanged', handleLanguageChange);
@@ -49,9 +43,6 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
       i18n.off('languageChanged', handleLanguageChange);
     };
   }, [i18n]);
-
-  // 调试日志
-  console.log('LanguageProvider: i18n.language =', i18n.language, 'state.language =', language);
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage: handleSetLanguage }}>
