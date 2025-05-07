@@ -30,22 +30,16 @@ api.interceptors.response.use(
     return response
   },
   (error: AxiosError) => {
-    if (error.response) {
-      // 处理 401 未授权错误
-      if (error.response.status === 401) {
-        localStorage.removeItem('token')
-        window.location.href = '/login'
-      }
-      // 处理其他错误
-      const errorMessage = error.response.data?.title || '请求失败'
-      console.error('API Error:', errorMessage)
-    } else if (error.request) {
-      // 请求发出但未收到响应
-      console.error('Network Error:', error.message)
-    } else {
-      // 请求配置出错
-      console.error('Request Error:', error.message)
+    if (error.response?.status === 401) {
+      localStorage.removeItem('token')
+      window.location.href = '/login'
     }
+    
+    // 使用 handleServerError 统一处理错误
+    import('@/utils/handle-server-error').then(({ handleServerError }) => {
+      handleServerError(error)
+    })
+    
     return Promise.reject(error)
   }
 )
